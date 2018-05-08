@@ -974,7 +974,7 @@ class HeartbeatThread(threading.Thread):
         elif not self.coordinator.heartbeat.should_heartbeat():
             # poll again after waiting for the retry backoff in case
             # the heartbeat failed or the coordinator disconnected
-            log.log(0, 'Not ready to heartbeat, waiting')
+            # log.log(0, 'Not ready to heartbeat, waiting')
             with self.coordinator._lock:
                 self.coordinator._lock.wait(self.coordinator.config['retry_backoff_ms'] / 1000)
 
